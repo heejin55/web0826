@@ -10,6 +10,7 @@
 
 */
 
+
 // 컴포넌트 생성
 function Hello() {
     // 리턴 뒤에 한 줄 문장;
@@ -18,49 +19,92 @@ function Hello() {
     return (
         // JSX의 태그 끝에는 ; 쓰지 않는다.
         // return 안의 부root는 1개 이어야 한다.
-        <div style={{margin: "12px"}}>
+        <div className="card_list">
             {/* XML에서 빈 요소는 끝에 <img /> */}
-            <img src="https://img.megabox.co.kr/SharedImg/2024/07/03/QaslTt607PkNH8mPWm6ZUH3UwDx2bHoH_420.jpg" alt="사랑의 하츄핑" />
-            <div>
-                {/* 속성={{}} -> 바깥쪽 괄호는 표현식*/}
-                {/* 속성={{}} -> 안쪽 괄호는 객체*/}
-                {/* 객체로 스타일을 지정한다. */}
-                {/* 속성 이름은 카멜표기법으로 쓴다. ex) borderRadius 또는 "border-radius"*/}
-                <span style={{padding:"0 4px", borderRadius:"2px",background:"pink"}}>All</span>
-                {/* class -> className */}
-                <h3 class="card_tit">사랑의 하츄핑</h3>
+                <div className="card_img">
+                    <img
+                        src="https://img.megabox.co.kr/SharedImg/2024/07/03/QaslTt607PkNH8mPWm6ZUH3UwDx2bHoH_420.jpg"
+                        alt="사랑의 하츄핑"
+                    />
+                </div>
+                <div>
+                    {/* {{}} -> 바깥쪽 괄호는 표현식 */}
+                    {/* {{}} -> 안쪽 객체 괄호 */}
+                    {/* 객체로 스타일을 지정한다. */}
+                    {/* 속성명은 카멜표기법으로 쓴다. 예) borderRadius 또는 "border-radius" */}
+                    <span className="card_age">All</span>
+                    {/* class -> className 으로 기록한다.*/}
+                    <h3 className="card_tit">사랑의 하츄핑</h3>
+                </div>
+                <div>
+                    <span className="card_rate">예매율 1%</span>
+                    <span className="card_date">개봉일 2024.08.07</span>
+                </div>
+                <div className="card_btn">
+                    <button className="card_heart">❤ 487</button>
+                    <button className="card_reservation">예매</button>
+                </div>
             </div>
-            <div>
-                <span>예매율 1%</span>
-                <span>개봉일 2024.08.07</span>
-            </div>
-            <div>
-                <button>❤ 487</button>
-                <button>예매</button>
-            </div>
-        </div>
-    );
+            );
 }
 
-/* 
+/*
     ReactDOM.render(리액트요소, HTMLDOM컨테이너);
         1. ReactDOM은 가상 DOM을 생성하는 객체
         2. render()은 리액트 요소를 HTML DOM 컨테이너에 넣는 메서드
         3. 요소는 컴포넌트의 리턴 값을 XML의 빈 요소로 쓴다
             ex) <Hello />
-        4. 컨테이너는 HTML 페이지의 div#root를 말한다.
- */
+            4. 컨테이너는 HTML 페이지의 div#root를 말한다.
+            */
 
-function App(){
+            function App(){
     return(
-        <div style={{display: "flex"}}>
-            <Hello />
-            <Hello />
-            <Hello />
-            <Hello />
-        </div>
-    );
+            <div style={{ display: "flex" }}>
+                <Hello />
+                <Hello />
+                <Hello />
+                <Hello />
+            </div>
+            );
 }
 
-// 출력 -> 렌더링
-ReactDOM.render(<App />,document.querySelector("#root"));
+            // 출력 -> 렌더링
+            ReactDOM.render(<App />,document.querySelector("#root"));
+
+
+
+
+
+// function App(){
+                //   return (
+                //     <div style={{display: "flex"}}>
+                //       <Hello />
+                //       <Hello />
+                //       <Hello />
+                //       <Hello />
+                //     </div>
+                //   );
+                // }
+
+                /* 
+                    ReactDOM.render(요소, 컨테이너); 
+                      1. ReactDOM은 가상 DOM을 생성하는 객체
+                      2. render()은 요소를 컨테이너에 넣는 메서드
+                      3. 요소는 컴포넌트의 리턴 값을 XML의 빈 요소로 쓴다.
+                        예) <Hello />
+                      4. 컨테이너는 HTML 페이지의 div#root를 말한다.
+                */
+
+                // 출력 -> 렌더링
+                // ReactDOM.render(<App />, document.querySelector("#root"));
+
+                ReactDOM.render(
+                    <div style={{ display: "flex" }}>
+                        <Hello />
+                        <Hello />
+                        <Hello />
+                        <Hello />
+                    </div>,
+                    document.querySelector("#root")
+                );
+
