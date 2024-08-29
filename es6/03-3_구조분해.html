@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구조분해</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            구조 분해
+                언제? 함수가 배열을 반환하는 경우
+
+        */
+
+        const vehicles = ['제네시스', '트럭', '싼타페'];
+
+        // 첫 번째 방법
+        const car1 = vehicles[0];
+        const truck = vehicles[1];
+        const suv = vehicles[2];
+        console.log("car1:", car1)
+        console.log("car2:", truck)
+        console.log("car3:", suv)
+
+        // 변수를 배열로
+        const [car2, truck2, suv2] = vehicles;
+        const [car3, , suv3] = vehicles;
+        document.write("car2: ", car2, "<br");
+        document.write("truck2: ", truck2, "<br");
+        document.write("suv2: ", suv2);
+
+        document.write("car3: ", car3, "<br");
+        // document.write("truck3: ", truck3, "<br"); -> 오류
+        document.write("suv3: ", suv3);
+
+        // 계산기
+        // 함수가 배열을 반환하는 경우 구조 분해가 유용합니다.
+        function calculate(a, b) {
+            const add = a + b;
+            const subtract = a - b;
+            const multiply = a * b;
+            const divide = a / b;
+
+            return [add, subtract, multiply, divide];
+        }
+
+        // const [add, subtract, multiply, divide] = calculate(4, 7);
+        const [add, subtract, multiply, divide] = [13, -3, 28, 0.57];
+    </script>
+</body>
+
+</html>
