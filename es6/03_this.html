@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+</head>
+
+<body>
+    <button>red</button>
+    <button>green</button>
+    <button>blue</button>
+    <script>
+        /* 
+            class(클래스)의 경우 this는 아래와 다르다!!!
+                속성의 값이 일반 함수인 경우
+                    ->  이벤트 발생시 this는 이벤트를 발생한 객체 자신이다!!!
+
+                속성의 값이 화살표 함수인 경우
+                    ->  this를 가지고 있는 객체 자신이다.
+
+
+            함수와 this
+            함수 호출 시: this는 window
+
+            이벤트 발생시
+                this:
+                    -일반 함수일 경우 window,
+                    -화살표 함수의 경우 이벤트를 발생한 자신
+
+                event.currentTarget:
+                    -일반함수, 화살표함수 모두 이벤트를 발생한 자신
+
+            일반함수 vs 화살표함수
+
+            일반함수
+                this, currentTarget은 이벤트를 발생한 자신
+            화살표함수의 경우
+                this는 window
+                cuurentTarget은 이벤트를 발생한 자신
+
+            일반함수 vs 생성자함수
+                일반 함수 - return, this 선택
+                생성자 함수 - new, this 키워드 필수! - 일반적으로 생성자에선 리턴을 쓰진 않음
+
+        */
+
+        const btn = document.querySelectorAll('button');
+
+        // 두 문장은 동일 문장
+        // 매개변수(인수)가 있을 경우
+        // btn[0].onclick = function(){fn(a)};
+        // 매개변수(인수)가 없을 경우
+        // btn[0].onclick = fn;
+
+
+        /* 
+            버튼을 클릭하면
+            글자의 컬러와 똑같이
+            배경색을 바꾸게 하시오. 
+        */
+
+
+        // 버튼을 클릭하면
+        btn[0].onclick = fn;
+
+        function fn() {
+            const text = btn[0].innerText;
+            console.log('text');
+            // 배경색 바디에 지정하기
+            document.body.style.backgroundColor = text;
+        }
+        btn[1].onclick = function () {
+            /* 버튼에 쓰인 이름의 색으로 가져오기 */
+            const text = btn[1].innerText;
+            console.log('text');
+            // 배경색 바디에 지정하기
+            document.body.style.backgroundColor = text;
+        }
+        btn[2].onclick = () => {
+            /* 버튼에 쓰인 이름의 색으로 가져오기 */
+            const text = btn[2].innerText;
+            console.log('text');
+            // 배경색 바디에 지정하기
+            document.body.style.backgroundColor = text;
+        }
+    </script>
+</body>
+
+</html>
