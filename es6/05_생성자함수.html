@@ -3,26 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>생성자함수</title>
+    <title>생성자 함수</title>
 </head>
 <body>
     <script>
         /* 
-            생성자 함수
-                1. 이름의 첫 글자는 대문자로 쓴다. -> 일반 함수와 구별
+            생성자 함수란?
+                객체를 생성하는 함수!
+
+                1. 이름의 첫글자는 대문자로 쓴다. 
+                    -> 일반 함수와 구별
+                2. this 키워드로 속성을 지정한다.
+
+            객체 생성 방법
+                1. 객체 리터럴:
+                    const 객체 = {속성: 값, 속성: 값,...}
+                2. 내장 객체인 Object()를 이용!
+                    const 객체 = new Object();
+                3. 생성자를 통해 객체를 직접 생성
+                    const 객체 = new 생성자;
         */
-        function Mb (mbimg, mbrank, mbtit, mbrate, mbdate, mbheart){
+
+        // 생성자 함수 만들기
+        function Mb(mbimg, mbrank, mbtit, mbrate, mbdate, mbheart) {
             this.이미지 = mbimg,
             this.관람등급 = mbrank,
             this.제목 = mbtit,
             this.예매율 = mbrate,
             this.개봉일 = mbdate,
-            this.하트 = mbheart
+            this.좋아요 = mbheart,
 
-            this.설명 = function(){
-                alert("당신이 선택한 영화는 ${this.제목}입니다.");
+            this.choice = function(){
+                document.write(`당신이 선택한 영화는 ${this.제목}입니다.`);
             }
         }
-    </script>
+
+        // 인스턴스(객체) 만들기
+        const mb = new Mb("https://img.megabox.co.kr/SharedImg/2024/08/02/8sn0OZ4ADy2ZrECjqwC5eckazK8WvVpA_420.jpg","12","한국이 싫어서","7.1%","2024.08.28","649",);
+
+        // 콘솔 출력
+        console.log("객체 생성 결과:", mb);
+
+        // 화면 출력
+        // for ~ in
+        // x는 속성, 값은 객체.속성 또는 객체["속성"]
+        document.write("<ul>");
+        for(const x in mb) {
+            // x가 이미지와 같으면 통과
+            if (x === "이미지" || x ==="choice") continue;
+            document.write(`<li>${x} : ${mb[x]}</li>`);
+            // if (x === "choice") return;
+        }
+        mb.choice();
+        document.write("</ul>");
+    </script> 
 </body>
 </html>

@@ -52,73 +52,77 @@
         document.write("<hr>");
 
         // x는 배열의 아이템
-        for(x of person) {
+        for(const x of person) {
             document.write(x);
         };
 
         document.write("<hr>");
 
-        // 객체 리터럴 방법
+        // 객체 리터럴
         // 인스턴스(객체) 생성
         const mb1 = {
             "영화이미지": '<img src="https://img.megabox.co.kr/SharedImg/2024/07/03/QaslTt607PkNH8mPWm6ZUH3UwDx2bHoH_420.jpg" alt="사랑의 하츄핑">',
-            "연령": "All",
+            "연령": "ALL",
             "영화제목": "사랑의 하츄핑",
-            "예매율": "2.6%",
+            예매율: "2.6%",
             "개봉일": "2024.08.07",
             "좋아요!": 495
         };
 
-
         // 객체 참조(접근, access)
         // 객체.속성 또는 객체["속성"]
-        
+
         // x는 속성명, mb1.x는 속성값이다.
+
         document.write(`<ul>`);
-        for(x in mb1) {
+        for (const x in mb1) {
             console.log(x);
             document.write(`<li>${x}: ${mb1[x]}</li>`);
-        };
-
+        }
         document.write(`</ul>`);
 
-        const mb2 = {};
-        console.log("입력 전: ", mb2);
 
-        mb2["영화이미지"] = '<img src="mbimg: https://img.megabox.co.kr/SharedImg/2024/08/26/OFEIHJBOoUQ2UV1XAxo44BpFMrUBKigc_420.jpg" alt="베테랑2">',
-        mb2["연령"] = "15",
-        mb2["영화제목"] = "베테랑2",
-        mb2["예매율"] = "15%",
-        mb2["개봉일"] = "2024.09.13",
-        mb2["좋아요!"] = 829
+        const mb2 = {};
+        console.log("입력전: ", mb2);
+        mb2["영화이미지"] = '<img src="https://img.megabox.co.kr/SharedImg/2024/05/20/1sr0K2rHmhPhuUWHk5fXiP0BJ0i0EMS8_420.jpg" alt="가필드 더 무비">';
+        mb2["연령"] = "ALL";
+        mb2["영화제목"] = "가필드 더 무비";
+        mb2["예매율"] = "1.2%";
+        mb2["개봉일"] = "2024.05.15";
+        mb2["좋아요"] = "485";
 
         document.write(`<ul>`);
-        for(x in mb2) {
+        for (const x in mb2) {
             console.log(x);
             document.write(`<li>${x}: ${mb2[x]}</li>`);
-        };
+        }
         document.write(`</ul>`);
 
 
         // new 생성자함수
         const mb3 = new Object({
-            "영화이미지": '<img src="https://img.megabox.co.kr/SharedImg/2024/08/02/8sn0OZ4ADy2ZrECjqwC5eckazK8WvVpA_420.jpg" alt="한국이 싫어서">',
-            "연령": "12",
-            "영화제목": "한국이 싫어서",
-            "예매율": "7.1%",
-            "개봉일": "2024.08.28",
-            "좋아요!": 649
+            "영화이미지": '<img src="https://img.megabox.co.kr/SharedImg/2024/07/03/QaslTt607PkNH8mPWm6ZUH3UwDx2bHoH_420.jpg" alt="사랑의 하츄핑">',
+            "연령": "ALL",
+            "영화제목": "사랑의 하츄핑",
+            예매율: "2.6%",
+            "개봉일": "2024.08.07",
+            "좋아요!": 495
         });
+
         console.log("난 mb3: ", mb3);
 
         const mb4 = new Object({
-            "영화이미지": '<img src="https://img.megabox.co.kr/SharedImg/2022/02/14/CoGWNhlBhUrWlBxBrrHoTSxlh8pgrIA4_420.jpg" alt="더 배트맨">',
-            "연령": "15",
-            "영화제목": "더 배트맨",
-            "예매율": "2.4%",
-            "개봉일": "2024.08.28",
-            "좋아요!": 1300
+            "영화이미지": 'https://img.megabox.co.kr/SharedImg/2024/06/24/RZWMFjfujP4iNHOxih6UHFqE62ApTmbV_420.jpg',
+            "연령": "ALL",
+            "영화제목": "슈퍼배드 4",
+            예매율: "0.4%",
+            "개봉일": "2024.07.24",
+            "좋아요!": 1100
         });
+
+        console.log("난 mb4: ", mb4);
+
     </script>
+
 </body>
 </html>
