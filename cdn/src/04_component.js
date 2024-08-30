@@ -79,17 +79,6 @@ function Hello() {
     );
 }
 
-// function App(){
-//   return (
-//     <div style={{display: "flex"}}>
-//       <Hello />
-//       <Hello />
-//       <Hello />
-//       <Hello />
-//     </div>
-//   );
-// }
-
 const container0 = document.querySelectorAll(".item").item(0);
 const root0 = ReactDOM.createRoot(container0);
 root0.render(<Comp0 />);
