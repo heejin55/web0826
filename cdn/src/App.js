@@ -1,8 +1,8 @@
 // App 컴포넌트
 function App() {
     return (
-        <div className="container">
-            {cards.map((item, idx) => {
+        <ul className="container">
+            {cards.map((item, idx) => (
                 <Card
                     key={idx}
                     mimg={item.cimg}
@@ -12,7 +12,7 @@ function App() {
                     mdata={item.cdata}
                     mheart={item.cheart}
                 />
-            })}
-        </div>
+            ))}
+        </ul>
     );
 }
