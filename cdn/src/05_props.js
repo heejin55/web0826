@@ -41,13 +41,39 @@ function Hello() {
     );
 }
 
-function Car(props) {
-    return <h2>I am a {props.brand}!</h2>;
+function Car1(props) {
+    return <h2>나는 {props.color} {props.brand}!</h2>;
 }
+
+function Car2({ brand, color }) {
+    return <h2>나는 {color} {brand}!</h2>;
+}
+
+function Car3() {
+    const carInfo = {brand: "페라리", color: "파란" }
+    return(
+        <div>
+            <h2>나는 {carInfo.color} {carInfo.brand}!</h2>
+            <Car4 brand={carInfo}/>
+        </div>
+    );
+}
+
+function Car4(props) {
+    return <h2>나는 {props.brand}!</h2>;
+}
+
 
 const container0 = document.querySelectorAll(".item").item(0);
 const root0 = ReactDOM.createRoot(container0);
 
 // 컴포넌트 호출 시 props로 전달할 값은 태그의 속성이 전달된다.
-root0.render(<Car brand="싼타페" />);
+root0.render(
+    <div>
+        <Car1 brand="k7" color="흰색"/>
+        <Car2 brand="싼타페" color="검정"/>
+        <Car3 />
+        <Car4 />
+    </div>
+);
 
